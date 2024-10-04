@@ -61,7 +61,7 @@ button.theme-toggle-button {
 }
 
 .modal-content {
-    background-color: #F7F7F7; 
+    background-color: #F7F7F7; /* Цвет модального окна в светлой теме */
     padding: 20px; 
     border-radius: 5px; 
     width: 500px;
@@ -69,32 +69,48 @@ button.theme-toggle-button {
     text-align: center; 
     display: flex; 
     flex-direction: column; 
-    justify-content: space-between; }
+    justify-content: space-between; 
+}
 
-    .modal-buttons {
-        display: flex;
-        justify-content: space-between;
-        margin-top: 10px; 
-    }
-    
-    .modal-buttons button {
-        width: 97px;          
-        height: 38px;   
-        border-radius: 5px;   
-        cursor: pointer;       
-        font-size: 14pt;   
-        border: 2px solid #6C63FF; 
-    }
-    
-    .modal-buttons button:first-child {
-        background-color: #F7F7F7;    
-        color:  #6C63FF;
-    }
-    
-    .modal-buttons button:last-child {
-        background-color: #6C63FF;  
-        color: white;     
-    }
+.modal-content.dark {
+    background-color: #252525; /* Цвет модального окна в тёмной теме */
+    color: white; /* Цвет текста в модальном окне */
+}
+
+.modal-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px; 
+}
+
+.modal-buttons button {
+    width: 97px;          
+    height: 38px;   
+    border-radius: 5px;   
+    cursor: pointer;       
+    font-size: 14pt;   
+    border: 2px solid #6C63FF; 
+}
+
+.modal-buttons button:first-child {
+    background-color: #F7F7F7;    
+    color:  #6C63FF;
+}
+
+.modal-buttons button:first-child.dark {
+    background-color: #252525; 
+    color: white; 
+}
+
+.modal-buttons button:last-child {
+    background-color: #6C63FF;  
+    color: white;     
+}
+
+.modal-buttons button:last-child.dark {
+    background-color: #6C63FF;  
+    color: white;    
+}
 
 input.note-input {
     width: 440px; 
@@ -134,11 +150,6 @@ input.note-input {
 
 .todo-item:last-child {
     border-bottom: none; 
-}
-
-.modal-content.dark {
-    background-color: #555; 
-    color: #fff; 
 }
 
 h1 {

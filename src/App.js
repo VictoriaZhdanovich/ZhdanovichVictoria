@@ -66,7 +66,16 @@ const App = () => {
     };
 
     const handleThemeToggle = () => {
-        setDarkMode(!darkMode);
+        setDarkMode(prevDarkMode => {
+            const newDarkMode = !prevDarkMode;
+            // Меняем класс body в зависимости от темы
+            if (newDarkMode) {
+                document.body.classList.add('dark-mode');
+            } else {
+                document.body.classList.remove('dark-mode');
+            }
+            return newDarkMode;
+        });
     };
 
     const filteredTodos = todos.filter(todo => {
@@ -76,7 +85,7 @@ const App = () => {
     });
 
     return (
-        <div className={darkMode ? 'dark-mode' : ''}>
+        <div>
             <h1 style={{ textAlign: 'center', color: darkMode ? 'white' : 'black' }}>TODO LIST</h1>
             <div className="container">
                 <input
@@ -135,7 +144,7 @@ const App = () => {
                         </div>
                     </li>
                 ))}
-                {filteredTodos.length === 0 && search && ( // Проверяем, если нет результатов поиска и строка поиска не пустая
+                {filteredTodos.length === 0 && search && (
                     <div style={{ textAlign: 'center', marginTop: '20px' }}>
                         <img 
                             src={darkMode ? emptyImageDark : emptyImageLight} 
